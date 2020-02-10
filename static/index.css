@@ -1,0 +1,14 @@
+body{
+    background: rgb(10, 138, 10) ;
+}
+
+#chart{
+    width: 40%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;;
+}

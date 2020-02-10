@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block title %}Home{% endblock %} 
+
+{% block links %}
+<link rel="stylesheet" href="/static/index.css">
+{% endblock %}
+
+{% block content %}
+
+<h1>Hello Misky</h1>
+<br>
+<hr>
+<!-- Don't forget the "|safe"! -->
+<!-- class="d-flex justify-content-center"> -->
+
+<div id="chart">
+<embed type="image/svg+xml" src= {{ pie_chart|safe }} />
+</div>
+<div id="chart">
+<embed type="image/svg+xml" src= {{ line_chart|safe }} />
+</div>
+     
+
+{% endblock %} 
+
+{% block scripts %}{% endblock %}
