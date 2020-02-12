@@ -37,8 +37,9 @@ def pie():
    cur=conn.cursor() 
 
   
-   
-   cur.execute("""CREATE TABLE sales(id serial PRIMARY KEY,inv_id integer,quantity numeric)""");
+   cur.execute("""DROP TABLE sales;""")
+
+   cur.execute("""CREATE TABLE sales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
    cur.execute("""SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months""");
    records=cur.fetchall()
    conn.commit()
