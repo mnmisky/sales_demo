@@ -35,10 +35,18 @@ def pie():
    conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
 
    cur=conn.cursor() 
-   
-   cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity varchar,date_created)");
 
-   cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months")
+   try:
+   
+      cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity numeric ,date_created)");
+      conn.commit()
+      cur.close()
+      conn.close()
+
+   except Exception as e:
+      print(e)
+
+   cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months");
    records=cur.fetchall()
 
    # print(records)
@@ -87,6 +95,7 @@ def pie():
 
 
    return render_template  ('index.htm',pie_chart=pie_chart,line_chart=line_chart )
+
 
 
 
