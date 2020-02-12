@@ -65,7 +65,7 @@ def pie():
    #                ('Nov',22),
    #                ('Dec',20)
 
-   #    ]
+   #    
       
                
    line_chart = pygal.Line()
