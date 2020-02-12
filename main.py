@@ -1,3 +1,5 @@
+# pip3 freeze > requirements.txt  initializing req.txt file
+
 # line_chart.title = 'Browser usage evolution (in %)'
                #  line_chart.x_labels = map(str, range(2002, 2013))
                # line_chart.add('Firefox', [None, None,    0, 16.6,   25,   31, 36.4, 45.5, 46.3, 42.8, 37.1])
@@ -22,13 +24,19 @@ def numbers (one,two):
    return f'{result}'
    # '{}'.format(result)
 
+
+#suing local comp
 @app.route ("/pie")
 def pie():
+       
+ #connect to pyscopg2 lib
    conn=psycopg2.connect("dbname=sales_demo user=postgres host=localhost password=Miskitoo.1998")   
 
    cur=conn.cursor() 
+   
    cur.execute(""" SELECT EXTRACT (MONTH FROM sales.date_created) as months,
       SUM(sales.quantity) as total_sales
+      
 
       FROM public.sales
       GROUP BY 
@@ -40,13 +48,7 @@ def pie():
    print(records)
 
 
-   pie_chart = pygal.Pie()
-   pie_chart.title = 'Browser usage in February 2012 (in %)'
-   pie_chart.add('IE', 20)
-   pie_chart.add('Firefox', 40)
-   pie_chart.add('cHROME', 40)
-   pie_chart = pie_chart.render_data_uri()
-
+   
    # data_line=[('January',20),
    #                ('Jan',20),
    #                ('Feb',40),
@@ -79,8 +81,17 @@ def pie():
          
    line_chart=line_chart.render_data_uri()
 
+   #pie chart
+   pie_chart = pygal.Pie()
+   pie_chart.title = 'Browser usage in February 2012 (in %)'
+   pie_chart.add('IE', 20)
+   pie_chart.add('Firefox', 40)
+   pie_chart.add('cHROME', 40)
+   pie_chart = pie_chart.render_data_uri()
+
 
    return render_template  ('index.htm',pie_chart=pie_chart,line_chart=line_chart )
+
 
 
 
@@ -124,10 +135,36 @@ def line():
 
 
 
-
-@app.route ("/about")
-def about():
+#using heroku
+@app.route ("/online")
+def online():
    return "Welcome to About page"
+   connect to pyscopg2 lib
+   conn=psycopg2.connect("dbname=sales_demo user=postgres host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
+
+   cur=conn.cursor() 
+   # cur.execute("CREATE TABLE test (id serial PRIMARY KEY, 
+   # inv_id integer, 
+   # data varchar);")
+
+
+
+   cur.execute(""" SELECT EXTRACT (MONTH FROM sales.date_created) as months,
+      SUM(sales.quantity) as total_sales
+      
+
+      FROM public.sales
+      GROUP BY 
+      months
+      ORDER BY 
+      months""")
+   records=cur.fetchall()
+
+
+
+
+
+
 
 @app.route ("/contact")
 def contact():
