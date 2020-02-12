@@ -32,7 +32,7 @@ def numbers (one,two):
 def pie():
        
  #connect to pyscopg2 lib
-   conn=psycopg2.connect("dbname=sales_demo user=postgres host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
+   conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
 
    cur=conn.cursor() 
    
