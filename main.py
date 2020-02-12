@@ -36,17 +36,17 @@ def pie():
 
    cur=conn.cursor() 
 
-   try:
+  
    
-      cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity numeric ,date_created)");
-      cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months");
-      records=cur.fetchall()
-      conn.commit()
-      cur.close()
-      conn.close()
-
-   except Exception as e:
-      print(e)
+   cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity numeric ,date_created)");
+   cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months");
+   records=cur.fetchall()
+   conn.commit()
+   cur.close()
+   conn.close()
+   # try:
+   # except Exception as e:
+   #    print(e)
 
 
 
