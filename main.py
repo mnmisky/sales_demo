@@ -14,6 +14,8 @@ import psycopg2
 
 
 app = Flask(__name__)
+
+
 @app.route ("/person/<name>/<int:age>")
 def hello_world(name,age):
     return (name + " is " + age + " years old") .upper()
@@ -26,7 +28,7 @@ def numbers (one,two):
 
 
 #suing local comp
-@app.route ("/pie")
+@app.route ("/")
 def pie():
        
  #connect to pyscopg2 lib
