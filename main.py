@@ -36,16 +36,24 @@ def pie():
 
    cur=conn.cursor() 
    
-   # cur.execute(""" SELECT EXTRACT (MONTH FROM sales.date_created) as months,
-   #    SUM(sales.quantity) as total_sales
+      cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, 
+      inv_id integer, 
+      date_created date
+      quantity numeric 
+      PRIMARY KEY (id),
+    FOREIGN KEY (inv_id) REFERENCES inventories(id)
+      ;")
+
+   cur.execute(""" SELECT EXTRACT (MONTH FROM sales.date_created) as months,
+      SUM(sales.quantity) as total_sales
       
 
-   #    FROM public.sales
-   #    GROUP BY 
-   #    months
-   #    ORDER BY 
-   #    months""")
-   # records=cur.fetchall()
+      FROM public.sales
+      GROUP BY 
+      months
+      ORDER BY 
+      months""")
+   records=cur.fetchall()
 
    # print(records)
 
@@ -145,13 +153,6 @@ def online():
    # conn=psycopg2.connect("dbname=sales_demo user=postgres host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
 
    # cur=conn.cursor() 
-   # # cur.execute("CREATE TABLE stock (id serial PRIMARY KEY, 
-   # #    inv_id integer, 
-   # #    date_created date
-   # #    stock numeric 
-   # #    PRIMARY KEY (id),
-   # #  FOREIGN KEY (inv_id) REFERENCES inventories(id)
-   # #    ;")
 
 
 
