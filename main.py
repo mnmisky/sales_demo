@@ -36,10 +36,10 @@ def pie():
 
    cur=conn.cursor() 
    
-   # cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity varchar,date_created);")
+   cur.execute("CREATE TABLE sales (id serial PRIMARY KEY, inv_id integer,quantity varchar,date_created)");
 
-   # cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months")
-   # records=cur.fetchall()
+   cur.execute("SELECT EXTRACT (MONTH FROM sales.date_created) as months,SUM(sales.quantity) as total_sales FROM public.sales GROUP BY months ORDER BY months")
+   records=cur.fetchall()
 
    # print(records)
 
