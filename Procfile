@@ -1,2 +1,2 @@
-web:gunicornmain:app
+web: gunicornmain:app
 
