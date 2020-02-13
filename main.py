@@ -37,7 +37,7 @@ def pie():
    cur=conn.cursor() 
 
    cur.execute(""" DROP TABLE mysales;""")
-   cur.commit()
+   
 
    # cur.execute("""CREATE TABLE mysales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
    # cur.execute(""" insert into mysales (id, inv_id, quantity, date_created) values (1, 24, 495.03, '8/17/2018');
