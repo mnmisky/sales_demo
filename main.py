@@ -97,9 +97,8 @@ def pie():
    #pie chart
    pie_chart = pygal.Pie()
    pie_chart.title = 'Browser usage in February 2012 (in %)'
-   pie_chart.add('IE', 20)
-   pie_chart.add('Firefox', 40)
-   pie_chart.add('cHROME', 40)
+   pie_chart.add(x, y)
+   
    pie_chart = pie_chart.render_data_uri()
 
 
