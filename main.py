@@ -35,7 +35,11 @@ def pie():
    conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
 
    cur=conn.cursor() 
-   cur.execute("""insert into sales (id, inv_id, quantity, date_created) values (1, 24, 495.03, '8/17/2018');
+
+  
+
+   cur.execute("""CREATE TABLE mysales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
+   cur.execute(""" insert into sales (id, inv_id, quantity, date_created) values (1, 24, 495.03, '8/17/2018');
    insert into sales (id, inv_id, quantity, date_created) values (2, 26, 739.07, '2/27/2019');
    insert into sales (id, inv_id, quantity, date_created) values (3, 24, 952.85, '4/25/2016');
    insert into sales (id, inv_id, quantity, date_created) values (4, 27, 47.12, '11/3/2019');
@@ -235,8 +239,12 @@ def pie():
    insert into sales (id, inv_id, quantity, date_created) values (198, 36, 246.98, '3/2/2019');
    insert into sales (id, inv_id, quantity, date_created) values (199, 25, 8.77, '3/25/2011');
    insert into sales (id, inv_id, quantity, date_created) values (200, 27, 555.11, '4/21/2009');
-   """);
+   """)
    conn.commit()
+
+  
+   
+
    cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_sales FROM public.mysales GROUP BY months ORDER BY months""");
    records=cur.fetchall()
    conn.commit()
