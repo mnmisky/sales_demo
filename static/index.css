@@ -11,6 +11,7 @@ body{
 #chart2{
 
     width: 50%;
+    float: right;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
 }

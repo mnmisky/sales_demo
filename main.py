@@ -360,6 +360,7 @@ def online():
 @app.route ("/contact")
 def contact():
    return "Welcome to Contact page"
+   
 
 @app.route ("/services")
 def services():
