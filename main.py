@@ -128,7 +128,7 @@ def pie():
    insert into stock (id, inv_id, stock, date_created) values (40, 38, 970, '09/26/2010');
    """);
    conn.commit()
-   cur.execute()
+   
 
    cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_sales FROM public.mysales GROUP BY months ORDER BY months""");
    records=cur.fetchall()
