@@ -36,7 +36,7 @@ def pie():
 
    cur=conn.cursor() 
 
-   cur.execute(""" DROP TABLE mysales;""")
+   cur.execute("DROP TABLE public.mysales;")
    
 
    # cur.execute("""CREATE TABLE mysales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
