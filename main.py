@@ -41,7 +41,7 @@ def pie():
    cur.execute("""CREATE TABLE mysales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
    cur.execute("""CREATE TABLE inventories(id serial PRIMARY KEY,name character varying(100),type character varying(100),bp numeric (13,2), sp numeric(13,2))""");
    cur.execute("""CREATE TABLE stock(id serial PRIMARY KEY,inv_id integer,date_created date, stock numeric (13,2))""");
-
+   conn.commit()
 
    cur.execute(""" insert into inventories (id, name, bp, sp, type) values (1, 'Pork - Suckling Pig', 175.52, 245.728, 'vegetables');
    insert into inventories (id, name, bp, sp, type) values (2, 'Lid - 3oz Med Rec', 182.48, 255.472, 'Drinks');
@@ -84,6 +84,7 @@ def pie():
    insert into inventories (id, name, bp, sp, type) values (39, 'Cumin - Ground', 162.89, 228.046, 'Drinks');
    insert into inventories (id, name, bp, sp, type) values (40, 'Cranberries - Fresh', 188.44, 263.816, 'vegetables');
    """);
+   conn.commit()
 
    cur.execute(""" insert into stock (id, inv_id, stock, date_created) values (1, 1, 411, '05/03/2015');
    insert into stock (id, inv_id, stock, date_created) values (2, 15, 133, '02/11/2012');
@@ -126,7 +127,7 @@ def pie():
    insert into stock (id, inv_id, stock, date_created) values (39, 5, 548, '06/03/2012');
    insert into stock (id, inv_id, stock, date_created) values (40, 38, 970, '09/26/2010');
    """);
-
+   conn.commit()
    cur.execute()
 
    cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_sales FROM public.mysales GROUP BY months ORDER BY months""");
