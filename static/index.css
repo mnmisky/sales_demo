@@ -3,13 +3,13 @@ body{
 }
 
 #chart1{
-    width: 40%;
+    width: 50%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
 }
 #chart2{
 
-    width: 40%;
+    width: 50%;
     float: right;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;

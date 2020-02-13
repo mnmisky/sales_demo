@@ -33,7 +33,7 @@ def pie():
        
  #connect to pyscopg2 lib
    conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
-
+   #opening connection
    cur=conn.cursor() 
 
 
@@ -241,6 +241,8 @@ def pie():
    # insert into mysales (id, inv_id, quantity, date_created) values (199, 25, 8.77, '3/25/2011');
    # insert into mysales (id, inv_id, quantity, date_created) values (200, 27, 555.11, '4/21/2009');
    # """)
+
+   #making changes persisitent
    conn.commit()
 
   
