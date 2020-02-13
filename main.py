@@ -247,7 +247,7 @@ def pie():
 
   
    
-
+   #QUERY THAT CALCULATES TOTAL SALES PER MONTH
    cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_mysales FROM public.mysales GROUP BY months ORDER BY months""");
    records=cur.fetchall()
    conn.commit()
