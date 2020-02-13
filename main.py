@@ -36,7 +36,7 @@ def pie():
 
    cur=conn.cursor() 
 
-   cur.execute("DROP TABLE public.mysales;")
+   cur.execute("DROP TABLE mysales;")
    
 
    # cur.execute("""CREATE TABLE mysales(id serial PRIMARY KEY,inv_id integer,quantity numeric, date_created date)""");
@@ -246,8 +246,8 @@ def pie():
   
    
 
-   cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_mysales FROM public.mysales GROUP BY months ORDER BY months""");
-   records=cur.fetchall()
+   # cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_mysales FROM public.mysales GROUP BY months ORDER BY months""");
+   # records=cur.fetchall()
    conn.commit()
    cur.close()
    conn.close()
@@ -256,7 +256,7 @@ def pie():
    #    print(e)
 
 
-
+ 
    # print(records)
 
 
