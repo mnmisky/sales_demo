@@ -39,7 +39,6 @@ def pie():
   
 
    
-   cur.execute("""CREATE TABLE inventories(id serial PRIMARY KEY,name character varying(100),type character varying(100),bp numeric (13,2), sp numeric(13,2))""");
    cur.execute("""CREATE TABLE stock(id serial PRIMARY KEY,inv_id integer,date_created date, stock numeric (13,2))""");
    conn.commit()
 
