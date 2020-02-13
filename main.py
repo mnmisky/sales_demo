@@ -38,9 +38,7 @@ def pie():
 
   
 
-   
-   cur.execute("""CREATE TABLE stock(id serial PRIMARY KEY,inv_id integer,date_created date, stock numeric (13,2))""");
-   conn.commit()
+  
 
    cur.execute(""" insert into inventories (id, name, bp, sp, type) values (1, 'Pork - Suckling Pig', 175.52, 245.728, 'vegetables');
    insert into inventories (id, name, bp, sp, type) values (2, 'Lid - 3oz Med Rec', 182.48, 255.472, 'Drinks');
