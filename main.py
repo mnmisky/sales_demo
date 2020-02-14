@@ -158,7 +158,7 @@ def online():
 
 @app.route ("/contact")
 def contact():
-   return "Welcome to Contact page"
+   return render_template('contact.html')
 
 
 @app.route ("/services")

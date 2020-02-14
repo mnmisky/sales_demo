@@ -4,8 +4,14 @@ body{
     background:rgb(115, 140, 141) ;
 }
 
+.collapse {
+	display: flex;
+	justify-content: space-around;
+	background-color: tomato;
+}
+
 /* navbar styling */
-#navbar-brand{
+/* #navbar-brand{
 	background-color:#333;
 	color:#fff;
 }
@@ -34,4 +40,4 @@ body{
 	text-align: center;
 	padding:20px;
 	margin-top:40px;
-}
+} */
