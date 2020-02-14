@@ -5,7 +5,7 @@ body{
 }
 
 /* navbar styling */
-#navbarnavbar navbar-expand-lg navbar-light bg-light{
+#navbar navbar-expand-lg navbar-light bg-light{
 	background-color:#333;
 	color:#fff;
 }
