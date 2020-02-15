@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New Inventory</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ADD A NEW INVENTORY ENTRY</h4>
+        </div>
+        <div class="modal-body">
+            <!-- creating an inventory form -->
+            <form  action="/inventories" method="POST" >
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input name="name"type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Product Name">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Type</label>
+                
+        
+                    <select name="type"class="form-control" id="exampleFormControlSelect1">
+                      <option>Product</option>
+                      <option>Service</option>
+                      
+                    </select>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Buying Price</label>
+                    <input name="buying_price" type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Buying Price">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput2">Selling Price</label>
+                    <input name="selling_price" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Selling Price">
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" >Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </form>
+              
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">TYPE</th>
+        <th scope="col">BUYING PRICE</th>
+        <th scope="col">SELLING PRICE</th>
+        <th scope="col">STOCK</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Bread</td>
+        <td>Groceries</td>
+        <td>100</td>
+        <td>200</td>
+        <td>10</td>
+        <!-- actions -->
+        <td>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Add Sale</button>
+            <button type="submit" class="btn btn-warning" data-dismiss="modal">View Sale</button>
+            <button type="submit" class="btn btn-info" data-dismiss="modal">Edit Sale</button>
+            <button type="submit" class="btn btn-danger" data-dismiss="modal">Delete sale</button>
+        </td>
+        
+      </tr>
+      
+      
+    </tbody>
+</table>
+
+</body>
+</html>

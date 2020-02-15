@@ -7,7 +7,7 @@
                # line_chart.add('IE',      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
                # line_chart.add('Others',  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
 
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import pygal
 import psycopg2
 
@@ -32,7 +32,8 @@ def numbers (one,two):
 def pie():
        
  #connect to pyscopg2 lib
-   conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
+   conn=psycopg2.connect("dbname=sales_demo user=postgres host=localhost password=Miskitoo.1998")   
+   # conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")   
    #opening connection
    cur=conn.cursor() 
 
@@ -47,11 +48,11 @@ def pie():
   
    
    #QUERY THAT CALCULATES TOTAL SALES PER MONTH
-   cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_mysales FROM public.mysales GROUP BY months ORDER BY months""");
-   records=cur.fetchall()
-   conn.commit()
-   cur.close()
-   conn.close()
+   # cur.execute("""SELECT EXTRACT (MONTH FROM mysales.date_created) as months,SUM(mysales.quantity) as total_mysales FROM public.mysales GROUP BY months ORDER BY months""");
+   # records=cur.fetchall()
+   # conn.commit()
+   # cur.close()
+   # conn.close()
    # try:
    # except Exception as e:
    #    print(e)
@@ -79,20 +80,20 @@ def pie():
    #    
       
                
-   line_chart = pygal.Line()
-   line_chart.title="mysales over the year 2019"
-   x=[]
-   y=[]
-   for i in records: 
-      x.append(i[0])
-      y.append(i[1])
+   # line_chart = pygal.Line()
+   # line_chart.title="mysales over the year 2019"
+   # x=[]
+   # y=[]
+   # for i in records: 
+   #    x.append(i[0])
+   #    y.append(i[1])
 
 
-   line_chart.x_labels=map(str, x)
-   line_chart.add("mysales",y)
+   # line_chart.x_labels=map(str, x)
+   # line_chart.add("mysales",y)
 
          
-   line_chart=line_chart.render_data_uri()
+   # line_chart=line_chart.render_data_uri()
 
    #pie chart
    pie_chart = pygal.Pie()
@@ -103,10 +104,29 @@ def pie():
    pie_chart = pie_chart.render_data_uri()
 
 
-   return render_template  ('index.htm',pie_chart=pie_chart,line_chart=line_chart )
+   return render_template  ('index.htm',pie_chart=pie_chart )
+   # line_chart=line_chart
 
 
+@app.route("/inventories", methods=['POST','GET'])
+def inventories():
+      #  adding http verbs so that it can execute if the verb is called
+       if request.method=='POST':
+        name= request.form['name']        
+        type= request.form['type']        
+        bp= request.form['buying_price']        
+        sp= request.form['selling_price'] 
+        print (name)       
+        print (type)       
+        print (bp)       
+        print (sp)       
 
+       #  crud method. using http verbs eg get,post,delete,put 
+      
+
+
+       return render_template('inventories.html')
+   
 
 
 @app.route("/line")
