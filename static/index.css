@@ -1,18 +1,14 @@
-
+.body{
+    background-color: whitesmoke;
+}
 
 #chart1{
-    width: 30%;
-    float: left;
+    width: fit-content;
+    float:center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 50px;
 }
-#chart2{
 
-    width: 50%;
-    float: right;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
-}
 
 h1{
     font-family: 'Times New Roman', Times, serif;

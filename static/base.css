@@ -1,43 +1,22 @@
 
 
-body{
-    background:rgb(115, 140, 141) ;
-}
-
-.collapse {
-	display: flex;
-	justify-content: space-around;
-	background-color: tomato;
-}
-
-/* navbar styling */
-/* #navbar-brand{
-	background-color:#333;
-	color:#fff;
-}
-
-#navbar ul{
-	padding:0;
-	list-style: none;
-}
-
-#navbar li{
-	display:inline;
-}
-
-#navbar a{
-	color:#fff;
-	text-decoration: none;
-	font-size:18px;
-	padding-right:15px;
-}
+.bg-turquoise {
+	background-color:turquoise;
+  }
 
 
 
-#main-footer{
-	background: #333;
-	color:#fff;
+
+
+#main-footer {
+	position: relative;
+	float: center;
+	bottom:20px;
+	height:30px;
+	width:100%;
 	text-align: center;
-	padding:20px;
-	margin-top:40px;
-} */
+	background-color:grey;
+
+ }
+
+  
