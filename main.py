@@ -12,10 +12,10 @@ from flask_sqlalchemy import SQLAlchemy
 import pygal
 import psycopg2
 import datetime
-from configs.config import Development
+from configs.config import Development,Production
  
 app = Flask(__name__)
-app.config.from_object(Development)
+app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
