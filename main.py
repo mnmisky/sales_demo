@@ -15,7 +15,7 @@ import datetime
 from configs.config import Development,Production
  
 app = Flask(__name__)
-app.config.from_object(Development)
+app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
