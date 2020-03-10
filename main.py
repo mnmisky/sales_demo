@@ -210,7 +210,7 @@ def addstock(id):
          sp= request.form['selling_price'] 
 
          #getting records so it shows up to the form for you to edit
-         record=Inventories.query.filter by(id=id).first()
+         record=Inventories.query.filter_by(id=id).first()
          #now replacing back values whether or not you chnaged them
          record.name=name
          record.type=type
