@@ -208,9 +208,15 @@ def addstock(id):
          type= request.form['type']        
          bp= request.form['buying_price']        
          sp= request.form['selling_price'] 
-   
+
+         #getting records so it shows up to the form for you to edit
+         record=Inventories.query.filter by(id=id).first()
+         #now replacing back values whether or not you chnaged them
+         record.name=name
+         record.type=type
+         record.bp=bp
+         record.sp=sp
          
-         record=Inventories(name=name, type=type, bp=bp, sp=sp)  
          db.session.add(record)
          db.session.commit()
        flash("Succesfully updated")
