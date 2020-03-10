@@ -182,6 +182,8 @@ def addsale():
    
        return render_template('inventories.html')
 
+
+
 @app.route("/addstock/<inv_id>", methods=['POST','GET'])
 def addstock(inv_id):
    
@@ -194,6 +196,29 @@ def addstock(inv_id):
        return redirect(url_for('inventories'))
 
        return render_template('inventories.html')
+
+
+
+#editing an inventory entry
+@app.route("/editinventory/<int:id>", methods=['POST','GET'])
+def addstock(id):
+   
+       if request.method=='POST':
+         name= request.form['name']        
+         type= request.form['type']        
+         bp= request.form['buying_price']        
+         sp= request.form['selling_price'] 
+   
+         
+         record=Inventories(name=name, type=type, bp=bp, sp=sp)  
+         db.session.add(record)
+         db.session.commit()
+       flash("Succesfully updated")
+       flash("Oops.Seems like that record doesn't exist")
+       return redirect(url_for('inventories'))
+
+       return render_template('inventories.html')
+
 
 
 
@@ -235,6 +260,11 @@ def line():
       line_chart=line_chart.render_data_uri()
             
       return render_template ('index.htm', line_chart=line_chart)
+
+
+
+
+
 
 
 

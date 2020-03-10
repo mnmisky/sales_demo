@@ -181,7 +181,38 @@
 
 
 
-              <button type="submit" class="btn btn-info" data-dismiss="modal">Edit Sale</button>
+              <button type="submit" class="btn btn-info" data-dismiss="modal">Edit Inventory</button>
+              <form  action="{{ url_for ('inventories')}}" method="POST" >
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input name="name"type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Product Name">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Type</label>
+                
+        
+                    <select name="type"class="form-control" id="exampleFormControlSelect1">
+                      <option>Product</option>
+                      <option>Service</option>
+                      
+                    </select>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Buying Price</label>
+                    <input name="buying_price" type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Buying Price">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput2">Selling Price</label>
+                    <input name="selling_price" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Selling Price">
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" >Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </form>
+
               <button type="submit" class="btn btn-danger" data-dismiss="modal">Delete sale</button>
               
           </td>
