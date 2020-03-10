@@ -200,7 +200,7 @@ def addstock(inv_id):
 
 
 #editing an inventory entry
-@app.route("/editinventory/<int:id>", methods=['POST','GET'])
+@app.route("/editinventory/<id>", methods=['POST','GET'])
 def addstock(id):
    
        if request.method=='POST':
