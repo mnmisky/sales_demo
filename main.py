@@ -14,7 +14,7 @@ import psycopg2
 import datetime
 from configs.config import Development,Production
 app = Flask(__name__)
-app.config.from_object(Production)
+app.config.from_object(Development)
 
 db = SQLAlchemy(app)
 
