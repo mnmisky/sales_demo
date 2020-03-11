@@ -196,7 +196,7 @@
                     </div>
                     <div class="modal-body">
                         <!-- creating an inventory form -->
-                        <form  action="{{ url_for ('editinventories',id=each.id)}}" method="POST" >
+                        <form  action="{{ url_for ('editinventory',id=each.id)}}" method="POST" >
                             <div class="form-group">
                               <label for="formGroupExampleInput">Name</label>
                               <input name="name"type="text" value={{each.name}} class="form-control" id="formGroupExampleInput" >
