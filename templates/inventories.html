@@ -205,10 +205,15 @@
                               <label for="formGroupExampleInput2">Type</label>
                             
                     
-                                <select name="type" value={{each.type}} class="form-control" id="exampleFormControlSelect1">
+                                <select name="type" class="form-control" id="exampleFormControlSelect1">
+                                  {%if(each.type=='Product')%}
+                                    
+                                  <option selected=selected>Product</option>
+                                  <option>Service</option>
+                                  {%else%}
                                   <option>Product</option>
-                                  <option selected=selected>Service</option>
-                                  
+                                   <option selected=selected>Service</option>
+                                  {%endif%}
                                 </select>
                              
                             </div>
