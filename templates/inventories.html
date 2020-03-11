@@ -22,8 +22,9 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
           <h4 class="modal-title">ADD A NEW INVENTORY ENTRY</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
             <!-- creating an inventory form -->
@@ -105,8 +106,9 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
                         <h4 class="modal-title">ADD A NEW STOCK ENTRY</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div class="modal-body">
                           <!-- creating an stock form -->
@@ -146,8 +148,9 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
                         <h4 class="modal-title">ADD A NEW SALE </h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div class="modal-body">
                           <!-- creating an inventory form -->
@@ -181,8 +184,8 @@
 
 
 
-              <button type="submit" class="btn btn-info" data-dismiss="modal">Edit Inventory</button>
-              <div class="modal fade" id="myModal1" role="dialog">
+              <button type="submit" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#editinventory"{{each.id}}>Edit Inventory </button>
+              <div class="modal fade" id="editinventory"{{each.id}} role="dialog">
                 <div class="modal-dialog">
                                                
                   <!-- Modal content-->
