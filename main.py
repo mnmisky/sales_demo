@@ -224,9 +224,9 @@ def editinventory(id):
        
       
        flash("Oops.Seems like that record doesn't exist")
-      return redirect(url_for('inventories'))
+       return redirect(url_for('inventories'))
 
-      return render_template('inventories.html')
+       return render_template('inventories.html')
 
 
 
