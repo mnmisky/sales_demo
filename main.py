@@ -222,6 +222,7 @@ def editinventory(id):
          db.session.commit()
        flash("Succesfully updated")
        
+       
       
        flash("Oops.Seems like that record doesn't exist")
        return redirect(url_for('inventories'))
