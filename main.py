@@ -14,7 +14,7 @@ import psycopg2
 import datetime
 from configs.config import Development,Production
 app = Flask(__name__)
-app.config.from_object(Development)
+app.config.from_object(Production)
 
 db = SQLAlchemy(app)
 
@@ -211,6 +211,7 @@ def editinventory(id):
 
          #getting records so it shows up to the form for you to edit
          record=Inventories.query.filter_by(id=id).first()
+         print(record.id)
          #now replacing back values whether or not you chnaged them
          record.name=name
          record.type=type
@@ -220,10 +221,12 @@ def editinventory(id):
          db.session.add(record)
          db.session.commit()
        flash("Succesfully updated")
-       flash("Oops.Seems like that record doesn't exist")
-       return redirect(url_for('inventories'))
+       else:
+      
+         flash("Oops.Seems like that record doesn't exist")
+      return redirect(url_for('inventories'))
 
-       return render_template('inventories.html')
+      return render_template('inventories.html')
 
 
 
