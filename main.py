@@ -221,9 +221,9 @@ def editinventory(id):
          db.session.add(record)
          db.session.commit()
        flash("Succesfully updated")
-       else:
+       
       
-         flash("Oops.Seems like that record doesn't exist")
+       flash("Oops.Seems like that record doesn't exist")
       return redirect(url_for('inventories'))
 
       return render_template('inventories.html')
