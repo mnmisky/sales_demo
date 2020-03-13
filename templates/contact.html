@@ -65,6 +65,37 @@
     color: #fff;
   
   }
+  #sidebar{
+	float:right;
+	width:50%;
+	color:#fff;
+    padding:0px;
+    padding:0 30px;
+    box-sizing: border-box;
+    color:black ;
+}
+
+#main{
+	float:left;
+	width:50%;
+	padding:0 30px;
+    box-sizing: border-box;
+    color:black ;
+    font-size:36px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#showcase{
+    background-image: url();
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
   
 </style>
 
@@ -74,6 +105,9 @@
 
 
 {% block content %}
+
+<img src="../static/images/contact.jpg" alt="Contact Us" style="width:500px;height:200px;" class="center">
+
 <div class="jumbotron jumbotron-fluid">
     <section id="showcase">
         <div class="container">
@@ -82,15 +116,16 @@
     </section>
 </div>
 
-
-<div class="container">
-    <h2> contact us on: </h2> 
-    <p> Phone:0723456789</p>
-    <p> Email:devpro@gmail.com </p>
-    <p> Instagram: @devpro_inc</p>
-    <p> Facebook:DevPro Incorporated</p>
-    <p> Twitter:DevPro_inc</p>
-</div>
+<section id="main">
+   
+         
+        <p> Phone:0723456789</p>
+        <p> Email:devpro@gmail.com </p>
+        <p> Instagram: @devpro_inc</p>
+        <p> Facebook:DevPro Incorporated</p>
+        <p> Twitter:DevPro_inc</p>
+   
+</section>
 
 <button type="button" class="btn btn-secondary btn-lg">Message Us</button>
     <div class="modal" tabindex="-1" role="dialog">
@@ -151,7 +186,7 @@
 
     <aside id="sidebar">
         <p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81495996834!2d36.82201161499149!3d-1.2849867359877725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11d9c727b643%3A0xfe5775e56073fb67!2sTechCamp%20Kenya!5e0!3m2!1sen!2sau!4v1584102950396!5m2!1sen!2sau" width="400" height="300" frameborder="0" float="right"style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81495996834!2d36.82201161499149!3d-1.2849867359877725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11d9c727b643%3A0xfe5775e56073fb67!2sTechCamp%20Kenya!5e0!3m2!1sen!2sau!4v1584102950396!5m2!1sen!2sau" width="400" height="300" frameborder="0" text-align="centre"style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             
         </p>
 
