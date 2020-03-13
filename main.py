@@ -29,15 +29,6 @@ conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210
 def create_tables():
        db.create_all()
 
-
-
-# @app.before_first_request
-# def create_tables():
-# db.create_all()
-
-
-
-
 @app.route("/")
 def home():
     return render_template  ('home.html' )   
@@ -168,15 +159,16 @@ def inventories():
         
 
 
-@app.route("/addsale/<inv_id>", methods=['POST','GET'])
-def addsale():
+@app.route("/addsale/<int:inv_id>", methods=['POST','GET'])
+def addsale(inv_id):
       #  adding http verbs so that it can execute if the verb is called
        if request.method=='POST':
          quantity= request.form['quantity']        
-         sale = Sales(inv_id=inv_id, quantity=total)
+         sale = Sales(inv_id=inv_id, quantity=quantity)
          db.session.add(sale)
          db.session.commit()
        return redirect(url_for('inventories'))
+       
 
               
    
@@ -184,7 +176,7 @@ def addsale():
 
 
 
-@app.route("/addstock/<inv_id>", methods=['POST','GET'])
+@app.route("/addstock/<int:inv_id>", methods=['POST','GET'])
 def addstock(inv_id):
    
        if request.method=='POST':
