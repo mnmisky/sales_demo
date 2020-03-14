@@ -153,7 +153,7 @@ def inventories():
 
          return redirect(url_for('inventories'))
 
-            #  crud method. using http verbs eg get,post,delete,put 
+            
          
       return render_template('inventories.html',records=r,remStock = remStock)
         
@@ -195,7 +195,7 @@ def addstock(inv_id):
 @app.route("/editinventory/<int:id>", methods=['POST','GET'])
 def editinventory(id):
    
-       if request.method=='POST':
+      if request.method=='POST':
          name= request.form['name']        
          type= request.form['type']        
          bp= request.form['buying_price']        
@@ -212,15 +212,26 @@ def editinventory(id):
          
          db.session.add(record)
          db.session.commit()
-       flash("Succesfully updated")
-       
-       
-      
-       flash("Oops.Seems like that record doesn't exist")
+         flash("Succesfully updated")
+      else:
+         flash("Oops.Seems like that record doesn't exist")
+      return redirect(url_for('inventories'))
+
+      return render_template('inventories.html')
+
+@app.route("/viewsale/<int:inv_id>", methods=['POST','GET'])
+def viewsale(inv_id):
+   
+       if request.method=='POST':
+        view=Sales.query.filter_by(inv_id=inv_id).first()
+        view.quantity=quantity
+        view.created_at=created_at
+
+        db.session.add(view)
+        db.session.commit()      
        return redirect(url_for('inventories'))
 
        return render_template('inventories.html')
-
 
 
 

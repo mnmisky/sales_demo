@@ -141,8 +141,8 @@
 
 
 
-              <button type="submit" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addsales{{each.id}}" >Add Sale</button>
-              <div class="modal fade" id="addsales{{each.id}}" role="dialog">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addsale{{each.id}}" >Add Sale</button>
+              <div class="modal fade" id="addsale{{each.id}}" role="dialog">
                   <div class="modal-dialog">
                   
                     <!-- Modal content-->
@@ -154,8 +154,8 @@
                       </div>
                       <div class="modal-body">
                           <!-- creating an inventory form -->
-                          <form  action="{{ url_for('addsale', inv_id=each.id) }}"method="POST" >
-                              <form  action="/addsale" method="POST" >  
+                          <form  action={{url_for('addsale', inv_id=each.id)}} method="POST" >
+                               
                               
                               <div class="form-group">
                                 <label for="formGroupExampleInput2">Quantity</label>
@@ -180,7 +180,46 @@
                 </div>
                     
 
-              <button type="submit" class="btn btn-warning" data-dismiss="modal">View Sale</button>
+              <button type="submit" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#viewsale{{each.inv_id}}">View Sale</button>
+              <div class="modal fade" id="viewsale{{each.inv_id}}" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      
+                      <h4 class="modal-title">Sales for this Product</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- creating an stock form -->
+                        <table class="table">
+                          <thead class="thead-light table-striped">
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">QUANTITY</th>
+                              <th scope="col">SOLD ON</th>
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <!-- {% set count = namespace(value=1) %} -->
+                              {% for each in view %}
+                                  
+                                  <th scope="row">{{ each.inv_id }}</th>
+                                  <td>{{each.quantity}}</td>
+                                  <td>{{ each.created_at }}</td>
+                              {% endfor %}
+                                  
+                          </tbody>
+                        </table>
+                      
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
 
 
 
