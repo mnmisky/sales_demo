@@ -14,7 +14,7 @@ import psycopg2
 import datetime
 from configs.config import Development,Production
 app = Flask(__name__)
-app.config.from_object(Production)
+app.config.from_object(Development)
 
 db = SQLAlchemy(app)
 
@@ -223,7 +223,7 @@ def editinventory(id):
 def viewsale(inv_id):
    
        if request.method=='POST':
-        view=Sales.query.filter_by(inv_id=inv_id).first()
+        view = session.query(Sales).filter_by(inv_id=inv_id).all()
         view.quantity=quantity
         view.created_at=created_at
 

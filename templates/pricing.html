@@ -8,7 +8,28 @@
 #price{
   padding-bottom: 40px;
 }
+
+
+#sidebar{
+	float:right;
+	width:40%;
+	background:darkgray;
+	color:#fff;
+	padding:0px;
+	box-sizing: border-box;
+}
+#main{
+	float:left;
+	width:60%;
+	padding:0 30px;
+    box-sizing: border-box;
+    <!-- background:honeydew; -->
+  color:black ;
   
+}
+#main p{
+  font-style: italic;
+}
   
 </style>
 {% endblock %}
@@ -16,40 +37,88 @@
 
 
 {% block content %}
-<div id="price">
-  <h3 style="text-align: center; color:black; font:size 30;"> Our Pricing is suited for all your business needs, whether you're a young grasshopper or are a fully fledged legend ;). Check out our rates and choose what is most suitable for your business</h3>
+
+<div class="container">
+  <div id="price">
+    <h3 style="text-align: center; color:black; font:size 30;"> Our Pricing is suited for all your business needs, whether you're a young grasshopper or are a fully fledged legend ;). Check out our rates and choose what is most suitable for your business</h3>
+  </div>
+  <table class="table table-borderless table-striped thead-dark">
+        <thead >
+          <tr>
+            <th scope="col">Plan</th>
+            <th scope="col">Database Size</th>
+            <th scope="col">Approximate Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><100 records</td>
+            <td>$100</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><1000 records</td>
+            <td>$550</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><5000 records</td>
+            <td>$750</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td><10000 records></td>
+            <td>$950</td>
+          </tr>
+        </tbody>
+  </table>
+
+
+    <section id="main">
+      <h1>Still Uncertain?</h1>
+      <p style="font-size:30px"> Just shoot us an message on the quote form alongside and our team'll be sure to help you select the best plan for your business
+
+      </p>
+    </section>
+    
+    <aside id="sidebar">
+        <h3>  <center>GET A QUOTE</center></h3>
+        <form action="" method="POST">
+      <div>
+        <label>First Name</label>
+        <input type="text" name="firstName" >
+      </div>
+      <br>
+      <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName" >
+      </div>
+      <br>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email">
+      </div>
+      <br>
+      <div>
+        <label>Nature of Business</label>
+        <select name="nature">
+          <option value="product">Products</option>
+          <option value="service">Services</option>
+          
+        </select>
+      </div>
+      <br>
+      <div>
+        <label>Nature of Request</label>
+        <textarea name="message"></textarea>
+      </div>
+      <br>
+            
+        <input type="submit" name="submit" class="btn btn-info" value="Submit">
+    </form>
+    </aside>
 </div>
-<table class="table table-borderless table-striped thead-dark">
-      <thead >
-        <tr>
-          <th scope="col">Option</th>
-          <th scope="col">Database Size</th>
-          <th scope="col">Approximate Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-</table>
 {% endblock %}
 
 
