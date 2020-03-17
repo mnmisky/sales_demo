@@ -82,9 +82,10 @@
       </tr>
     </thead>
     <tbody>
-      {% set count = namespace (value=1) %}
+      {% set count = namespace (value=0) %}
       {% for each in records %}
-              
+      {% set count.value = count.value + 1 %} 
+        <tr>   
           <th scope="row">{{ count.value }}</th>
           <td>{{each.name}}</td>
           <td>{{ each.type }}</td>
@@ -285,7 +286,7 @@
             
           </td>
           
-       </tr>
+        </tr>
 
       {% set count.value = count.value + 1 %} 
       {% endfor %} 
