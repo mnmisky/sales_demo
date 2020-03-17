@@ -14,7 +14,7 @@ import psycopg2
 import datetime
 from configs.config import Development,Production
 app = Flask(__name__)
-app.config.from_object(Production)
+app.config.from_object(Development)
 
 db = SQLAlchemy(app)
 
@@ -122,6 +122,13 @@ def inventories():
       # conn=psycopg2.connect("dbname=sales_demo user=postgres host=localhost password=Miskitoo.1998")      
 
       r= Inventories.query.all()
+      view = db.session.query(Sales).all()
+      print("view isssssssss:",view)
+     
+      for v in view:
+             print("v isss:",v.inv_id)
+      
+
       cur=conn.cursor()
       #  adding http verbs so that it can execute if the verb is called
       cur.execute("""SELECT inv_id, sum(quantity) as "stock"
@@ -137,8 +144,14 @@ def inventories():
       conn.commit()
 
       remStock = cur.fetchall()
-      #    for each in remStock:
-      #    print(each[1])
+   
+
+     
+   
+
+
+
+
 
 
       if request.method=='POST':
@@ -154,8 +167,8 @@ def inventories():
          return redirect(url_for('inventories'))
 
             
-         
-      return render_template('inventories.html',records=r,remStock = remStock)
+       #return a render template only once so its useless on all other routes  
+      return render_template('inventories.html',records=r,remStock = remStock,view=view)
         
 
 
@@ -217,21 +230,20 @@ def editinventory(id):
          flash("Oops.Seems like that record doesn't exist")
       return redirect(url_for('inventories'))
 
-      return render_template('inventories.html')
+      
 
 @app.route("/viewsale/<int:inv_id>", methods=['POST','GET'])
 def viewsale(inv_id):
    
        if request.method=='POST':
         view = session.query(Sales).filter_by(inv_id=inv_id).all()
+        view.inv_id=inv_id
         view.quantity=quantity
         view.created_at=created_at
 
         db.session.add(view)
         db.session.commit()      
        return redirect(url_for('inventories'))
-
-       return render_template('inventories.html')
 
 
 

@@ -181,35 +181,47 @@
               </div>
                   
 
-            <button type="submit" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#viewsale{{each.inv_id}}">View Sale</button>
-            <div class="modal fade" id="viewsale{{each.inv_id}}" role="dialog">
+            <button type="submit" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#viewsale{{each.id}}">View Sale</button>
+            <div class="modal fade" id="viewsale{{each.id}}" role="dialog">
               <div class="modal-dialog">
               
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
                     
-                    <h4 class="modal-title">Sales for this Product</h4>
+                    <h4 class="modal-title">Sales for {{ each.name }} </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
+                     
+                    
                       <!-- creating an stock form -->
                       <table class="table">
                         <thead class="thead-light table-striped">
                           <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">SALES ID</th>
                             <th scope="col">QUANTITY</th>
+                            <th scope="col">SELLING PRICE</th>
+                            <th scope="col">TOTAL SALES</th>
                             <th scope="col">SOLD ON</th>
                             
                           </tr>
                         </thead>
-                        <tbody>
-                            {% set count = namespace(value=1) %}
-                            {% for each in view %}
-                                
-                                <th scope="row">{{ each.inv_id }}</th>
-                                <td>{{each.quantity}}</td>
-                                <td>{{ each.created_at }}</td>
+                        <tbody>  
+                                           
+                            
+                            {% for v in view %}
+                            
+                              {% if v.inv_id == each.id %}
+                              <tr>       
+                                <th scope="row">{{ v.id }}</th>
+                                <td>{{v.quantity}}</td>
+                                <td>{{each.sp}}</td>
+                                <td>{{(v.quantity)*(each.sp)}}</td>
+                                <td>{{ v.created_at }}</td>
+                              </tr>
+                              {% endif %}
+                
                             {% endfor %}
                                 
                         </tbody>
@@ -288,7 +300,7 @@
           
         </tr>
 
-      {% set count.value = count.value + 1 %} 
+
       {% endfor %} 
       
       
