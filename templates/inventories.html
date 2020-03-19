@@ -8,7 +8,20 @@
 {% block content %} 
 
 
-
+<div class="container">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+      {{message}}
+      </div>
+    {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  
+  </div>
 
 <div class="container">
   
@@ -252,6 +265,7 @@
                       <form  action="{{ url_for ('editinventory',id=each.id)}}" method="POST" >
                           <div class="form-group">
                             <label for="formGroupExampleInput">Name</label>
+                            <!-- wrapping value in quotes makes updating of more than one name bc without quotation it only picks up one name  -->
                             <input name="name"type="text" value='{{each.name}}' class="form-control" id="formGroupExampleInput" >
                           </div>
                           <div class="form-group">
