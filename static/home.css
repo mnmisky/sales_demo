@@ -7,7 +7,7 @@ body{
 	background-repeat:no-repeat;
     background-size: auto;
 	background-position:center right;
-	min-height:300px;
+	min-height:3000px;
 	margin-bottom:30px;
 	text-align: center;
 
@@ -15,7 +15,7 @@ body{
 
 #showcase h1{
 
-	color: black;
+	color:green;
     font-size: 55px;
     line-height: 2;
     padding-top: 80px;
