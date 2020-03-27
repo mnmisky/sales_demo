@@ -31,7 +31,7 @@ def create_tables():
 
 @app.route("/")
 def home():
-    return render_template  ('home.html' )   
+    return render_template  ('home.html')   
 
 
 #suing local comp
@@ -123,7 +123,7 @@ def inventories():
 
       r= Inventories.query.all()
       view = db.session.query(Sales).all()
-      print("view isssssssss:",view)
+   
      
       for v in view:
              print("v isss:",v.inv_id)
@@ -145,14 +145,6 @@ def inventories():
 
       remStock = cur.fetchall()
    
-
-     
-   
-
-
-
-
-
 
       if request.method=='POST':
          name= request.form['name']        
@@ -176,15 +168,12 @@ def inventories():
 def addsale(inv_id):
       #  adding http verbs so that it can execute if the verb is called
        if request.method=='POST':
-         quantity= request.form['quantity']        
+         quantity= request.form['quantity']     
          sale = Sales(inv_id=inv_id, quantity=quantity)
          db.session.add(sale)
          db.session.commit()
-       return redirect(url_for('inventories'))
-       
+         return redirect(url_for('inventories'))
 
-              
-   
        return render_template('inventories.html')
 
 
@@ -285,13 +274,6 @@ def line():
       line_chart=line_chart.render_data_uri()
             
       return render_template ('index.htm', line_chart=line_chart)
-
-
-
-
-
-
-
 
 
 #using heroku
