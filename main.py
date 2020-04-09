@@ -290,6 +290,7 @@ def contact():
 def login():
    return render_template('login.html')
 
+# sign up page
 @app.route ("/signup")
 def signup():
    return render_template('signup.html')
