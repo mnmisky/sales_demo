@@ -22,7 +22,7 @@ from models.inventory import Inventories
 from models.stock import Stock
 from models.sale import Sales
 
-conn=psycopg2.connect("dbname=de723tjimc0c7b user=gygwqrdwerdekx host=ec2-18-210-51-239.compute-1.amazonaws.com password=3b24d6681e35a1c68211f7026e627708f43e92cb06f914303865b1636d4db1f7")  
+conn=psycopg2.connect("dbname=d92mal5kb87d46 user=ccvbizveqagakt host=ec2-35-171-31-33.compute-1.amazonaws.com password=24bc8be95dec135f012d2b6db50df39ef522eee8ee10338e8dcedb40090c8b0d")  
 # conn=psycopg2.connect("dbname=sales_demo user=postgres host=localhost password=Miskitoo.1998") 
 
 @app.before_first_request
